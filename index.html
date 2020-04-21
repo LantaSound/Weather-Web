@@ -5,63 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="keys.js"></script>
+
+    <script src="https://unpkg.com/@warnick/forecast-js/js/forecast.min.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header"></div>
-    <div class="search">
-        <div class="bar"></div>
+
+    <div class="results" id="app">
+
+        <input placeholder="Enter ZIP Code" v-on:input="zip_trigger" name="name" id="zip" />
+            <!-- <div class="alerts">
+                <div class="close" v-on:click="closeParent">X</div>
+                alert
+            </div> -->
+
+        <div class="header"></div>
+        <div class="search">
+            <div class="loca">
+                <div class="name">{{city}}, {{location.state}} <p id="zip_display"></p></div>
+                <div class="latlon">{{location.coord.lat}}, {{location.coord.lon}}</div>
+                <div class="date">{{time.date}}</div>
+            </div>
+        </div>
+        <div class="current">
+
+
+            <div class="icon">
+                <img v-bind:src="'/icons' + forecast[1].description_icon + '.png'" 
+                v-bind:alt="forecast[1].weather.description">
+            </div>
+
+            <div v-bind:class="'icon_'+forecast[1].description_icon" class="red"></div>
+
+
+            <div class="icon_01n"></div>
+            <div class="icon_02n"></div>
+            <div class="icon_03n"></div>
+            <div class="icon_04n"></div>
+            <div class="icon_09n"></div>
+            <div class="icon_10n"></div>
+            <div class="icon_11n"></div>
+            <div class="icon_13n"></div>
+            <div class="icon_50n"></div>
+            <div>
+                <img src="/icons" alt="">
+            </div>
+
+
+
+            <div class="temp">
+                <div class="current_temp degree_symbol">{{current.temp.current}}</div>
+                <div class="current_description">{{current.description_long}}</div>
+            </div>
+            <div class="specs">
+                <div class="sidebar">
+                    <div class="time">{{time.hour_12}}:{{time.minute}}:{{time.seconds}}</div>
+                    <div class="sunrise">{{current.sunrise}}</div>
+                    <div class="sunset">{{current.sunset}}</div>
+                </div>
+                <div class="riseset">
+                    <div class="rise"></div>
+                    <div class="rise"></div>
+                </div>
+                <div class="newblock">
+                    <div class="pressure">
+                        <div class="data">{{current.pressure}}</div>
+                        <div class="label">Pressure</div>
+                    </div>
+                    <div class="air_quality">
+                        <div class="data">{{current.air_quality}}</div>
+                        <div class="label">Air Quality</div>
+                    </div>
+                    <div class="uv_index">
+                        <div class="data">{{current.uv}}</div>
+                        <div class="label">UV Index</div>
+                    </div>
+                </div>
+                <div class="meta_2">
+                    <div class="cloud_coverage">
+                        <div class="label">Cloud Coverage</div>
+                        <div class="data">{{current.cloud_cover}}%</div>
+                    </div>
+                    <div class="visibility">
+                        <div class="label">Visibility</div>
+                        <div class="data"></div>
+                    </div>
+                    <div class="humidity">
+                        <div class="label">Humidity</div>
+                        <div class="data"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="forcast">
+            <div class="day">
+                <div class="weekday">{{forecast[1].weekday}}</div>
+                <div class="high_low">{{forecast[1].max_temp}}/{{forecast[1].min_temp}}</div>
+                <div v-bind:class="'icon_'+forecast[1].description_icon" class="icon"></div>
+                <div class="precipitation">
+                    <!-- <span class="rain">rain: {{forecast[1].precip}}</span>
+                    <span class="snow">snow: {{forecast[1].snow}}</span> -->
+                    <span class="likelihood">{{forecast[1].pop}}%</span>
+                </div>
+                <div class="description">{{forecast[1].weather.description}}</div>
+            </div>
+
+            <div class="day">
+                <div class="weekday">{{forecast[2].weekday}}</div>
+                <div class="high_low">{{forecast[2].max_temp}}/{{forecast[2].min_temp}}</div>
+                <div v-bind:class="'icon_'+forecast[2].description_icon" class="icon"></div>
+                <div class="precipitation">
+                    <!-- <span class="rain">rain: {{forecast[2].precip}}</span>
+                    <span class="snow">snow: {{forecast[2].snow}}</span> -->
+                    <span class="likelihood">{{forecast[2].pop}}%</span>
+                </div>
+                <div class="description">{{forecast[2].weather.description}}</div>
+            </div>
+
+            <div class="day">
+                <div class="weekday">{{forecast[3].weekday}}</div>
+                <div class="high_low">{{forecast[3].max_temp}}/{{forecast[3].min_temp}}</div>
+                <div v-bind:class="'icon_'+forecast[3].description_icon" class="icon"></div>
+                <div class="precipitation">
+                    <!-- <span class="rain">rain: {{forecast[3].precip}}</span>
+                    <span class="snow">snow: {{forecast[3].snow}}</span> -->
+                    <span class="likelihood">{{forecast[3].pop}}%</span>
+                </div>
+                <div class="description">{{forecast[3].weather.description}}</div>
+            </div>
+
+            <div class="day">
+                <div class="weekday">{{forecast[4].weekday}}</div>
+                <div class="high_low">{{forecast[4].max_temp}}/{{forecast[4].min_temp}}</div>
+                <div v-bind:class="'icon_'+forecast[4].description_icon" class="icon"></div>
+                <div class="precipitation">
+                    <!-- <span class="rain">rain: {{forecast[4].precip}}</span>
+                    <span class="snow">snow: {{forecast[4].snow}}</span> -->
+                    <span class="likelihood">{{forecast[4].pop}}%</span>
+                </div>
+                <div class="description">{{forecast[4].weather.description}}</div>
+            </div>
+
+            <div class="day">
+                <div class="weekday">{{forecast[5].weekday}}</div>
+                <div class="high_low">{{forecast[5].max_temp}}/{{forecast[5].min_temp}}</div>
+                <div v-bind:class="'icon_'+forecast[5].description_icon" class="icon"></div>
+                <div class="precipitation">
+                    <!-- <span class="rain">rain: {{forecast[5].precip}}</span>
+                    <span class="snow">snow: {{forecast[5].snow}}</span> -->
+                    <span class="likelihood">{{forecast[5].pop}}%</span>
+                </div>
+                <div class="description">{{forecast[5].weather.description}}</div>
+            </div>
+        </div>
     </div>
-    <div class="current">
-        <div class="temp"></div>
-        <div class="specs"></div>
-    </div>
-    <div class="hourly">
-        <div class="hour">
-            <div class="info"></div>
-        </div>
-        <div class="hour">
-            <div class="info"></div>
-        </div>
-        <div class="hour">
-            <div class="info"></div>
-        </div>
-        <div class="hour">
-            <div class="info"></div>
-        </div>
-        <div class="hour">
-            <div class="info"></div>
-        </div>
-        <div class="hour">
-            <div class="info"></div>
-        </div>
-        <div class="hour">
-            <div class="info"></div>
-        </div>
-        <div class="hour">
-            <div class="info"></div>
-        </div>
-    </div>
-    <div class="forecast">
-        <div class="day">
-            <div class="stat"></div>
-        </div>
-        <div class="day">
-            <div class="stat"></div>
-        </div>
-        <div class="day">
-            <div class="stat"></div>
-        </div>
-        <div class="day">
-            <div class="stat"></div>
-        </div>
-        <div class="day">
-            <div class="stat"></div>
-        </div>
-        <div class="day">
-            <div class="stat"></div>
-        </div>
-    </div>
-    <div class="map"></div>
     
     
     

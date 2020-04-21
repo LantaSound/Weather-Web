@@ -7,25 +7,152 @@
         padding: 0;
     }
 
+    input[type="text"], textarea {
+        background-color : white; 
+    }
+    
+    input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
+    
+    .degree_symbol:not(:empty)::after {
+        content: "°"
+    }
+    
+    .owm-legend-item{
+        display: none;
+    }
+
+    .icon{
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 75%;
+        height: 150px;
+    }
+    
+    .icon_01n{
+        background-image: url("/icons/01n.png");
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: cover;
+    }
+
+    .icon_02n{
+        background-image: url("/icons/02n.png");
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: cover;
+    }
+
+    .icon_03n{
+        background-image: url("/icons/03n.png");
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: cover;
+    }
+
+    .icon_04n{
+        background-image: url("/icons/04n.png");
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: cover;
+    }
+
+    .icon_09n{
+        background-image: url("/icons/09n.png");
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: cover;
+    }
+
+    .icon_10n{
+        background-image: url("/icons/10n.png");
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: cover;
+    }
+
+    .icon_11n{
+        background-image: url("/icons/11n.png");
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: cover;
+    }
+
+    .icon_13n{
+        background-image: url("/icons/13n.png");
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .icon_50n{
+        background-image: url("/icons/50n.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    #zip{
+        width:40vw;
+        margin: auto;
+        display: block;
+        border: 0;
+        border-bottom:10px solid rgb(221, 221, 221);
+        text-align: center;
+        font-size: 1em;
+        line-height: 1em;
+    
+        position: fixed;
+        top: 10px;
+        left: 30vw;
+        font-family: 'Quicksand', sans-serif;
+    }
+
     .header{
         background-color: rgb(15, 15, 49);
         height: 50px;
-        margin-top: 0;
+        top: 0px;
+        width: 100vw;
     }
 
     .search{
         background-color: rgb(66, 66, 88);
         height: 50px;
         margin-top: 0;
+        width: 100vw;
+        position: fixed;
     }
 
-    .bar{
-        background-color: rgb(233, 233, 241);
-        height: 30px;
-        top: 10px;
-        position: relative;
-        width: 30vw;
-        left: 35vw;
+    .loca{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0px;
+        width: 60vw;
+        margin-left: 30vw;
+        position: fixed;
+    }
+    .name{
+        font-family: 'Quicksand', sans-serif;
+        font-size: 2em;
+        grid-area: 1fr;
+        color: white;
+        margin-top: 5px;
+    }
+    .latlon{
+        color: rgb(180, 180, 180);
+        grid-area: 1fr;
+        font-size: 1.5em;
+        font-family: 'Quicksand', sans-serif;
+        margin-top: 10px;
+    }
+
+    .date{
+        color: rgb(180, 180, 180);
+        font-size: 1.5em;
+        grid-area: 1fr;
+        font-family: 'Quicksand', sans-serif;
+        margin-top: 10px;
     }
 
 
@@ -46,6 +173,23 @@
         height: 250px;
         background-image: linear-gradient(rgb(96, 96, 201), rgb(40, 40, 124));
         grid-area: 1fr;
+        margin-top: 50px;
+    }
+
+    .current_temp{
+        font-size: 15vh;
+        margin-left: 20px;
+        font-family: 'Quicksand', sans-serif;
+        color: white;
+    }
+    
+    .current_description{
+        font-size: 2vh;
+        margin-top: 25px;
+        font-family: 'Quicksand', sans-serif;
+        color: white;
+        font-size: 1.5em;
+        margin-left: 20px;
     }
 
     .specs{
@@ -54,53 +198,159 @@
         grid-area: 2fr;
         margin: 0;
         width: auto;
-    }
-
-
-
-
-
-    .hourly{
-        padding: 10px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 10px;
         margin-top: 50px;
-        margin-left: 20vw;
-        margin-right: 20vw;
     }
-
-    .hour{
-        height: 100px;
-        background-image: linear-gradient(rgb(15, 15, 48), rgb(0, 0, 0));
-        grid-area: 1fr;
-
-    }
-
-    .info{
-        background-color: rgb(177, 182, 187);
+    .sidebar{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0px;
+        margin-left: 2vw;
+        margin-top: 10px;
         height: 50px;
-        margin-top: 50px;
+        width: 30vw;
+    }
+  
+    .time{
+        color: rgb(15, 15, 49);
+        grid-area: 1fr;
+        font-size: 1.5em;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .sunrise{
+        color: rgb(74, 74, 116);
+        grid-area: 1fr;
+        font-size: 1.5em;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .sunset{
+        color: rgb(74, 74, 116);
+        grid-area: 1fr;
+        font-size: 1.5em;
+        font-family: 'Quicksand', sans-serif;
+    }
+    
+
+
+
+
+    .riseset{
+        color: rgb(15, 15, 49);
+        grid-area: 1fr;
+        grid-template-columns: 1fr 1fr;
+        display: grid;
+    }
+
+    .rise{
+        color: rgb(74, 74, 116);
+        grid-area: 1fr;
+    }
+
+    .set{
+        color: rgb(74, 74, 116);
+        grid-area: 1fr;
     }
 
 
 
 
 
-    .forecast{
+
+
+    .newblock{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0px;
+        margin-left: 2vw;
+        margin-top: 1px;
+        height: 80px;
+        width: 30vw;
+    }
+  
+    .pressure{
+        color: rgb(255, 255, 255);
+        grid-area: 1fr;
+        font-size: 1em;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .air_quality{
+        color: rgb(255, 255, 255);
+        grid-area: 1fr;
+        font-size: 1em;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .uv_index{
+        color: rgb(255, 255, 255);
+        grid-area: 1fr;
+        font-size: 1em;
+        font-family: 'Quicksand', sans-serif;
+    }
+    .data{
+        min-width: 40px;
+        display:inline-block
+    }
+    .label{
+        min-width: 150px;
+        display:inline-block;
+    }
+
+
+
+
+    .meta_2{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0px;
+        margin-left: 2vw;
+        margin-top: 1px;
+        height: 20px;
+        width: 30vw;
+    }
+  
+    .cloud_coverage{
+        color: rgb(255, 255, 255);
+        grid-area: 1fr;
+        font-size: 1em;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .visibility{
+        color: rgb(255, 255, 255);
+        grid-area: 1fr;
+        font-size: 1em;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .humidity{
+        color: rgb(255, 255, 255);
+        grid-area: 1fr;
+        font-size: 1em;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+
+
+
+
+    
+    .forcast{
         padding: 10px;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 10px;
         margin-top: 200px;
-        margin-left: 20vw;
-        margin-right: 20vw;
+        margin-left: 3vw;
+        margin-right: 3vw;
     }
 
     .day{
         height: 200px;
         background-image: linear-gradient(rgb(15, 15, 48), rgb(0, 0, 0));
         grid-area: 1fr;
+        width: 15vw;
 
     }
 
@@ -110,18 +360,52 @@
         margin-top: 120px;
     }
 
-
-
-
-    .map{
-        margin-top: 50px;
-        width: 100vw;
-        height: 700px;
-        background-image: linear-gradient(rgb(71, 107, 34), rgb(31, 100, 58));
-        border-top: solid rgb(51, 51, 51) 10px;
-        border-bottom: solid rgb(51, 51, 51) 10px;
-        margin-bottom: 50px;
+    .description{
+        margin-left: 10px;
+        font-family: 'Quicksand', sans-serif;
+        color: rgb(255, 255, 255);
+        position: absolute;
     }
+    
+    .precipitation{
+        /* padding-bottom: 5vh; */
+        float: left;
+        width: 2vw;
+        /* padding-top: 5vh; */
+        font-family: 'Quicksand', sans-serif;
+        color: rgb(255, 255, 255);
+        margin-top: 100px;
+        margin-left: 10px;
+    }
+    
+    .icon{
+        margin: auto;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        width: 75%;
+        height: 10px;
+        font-family: 'Quicksand', sans-serif;
+        color: rgb(255, 255, 255);
+    
+    }
+    
+    .weekday{
+        margin-left: 10px;
+        margin-top: 10px;
+        /* padding-bottom: 5vh; */
+        font-family: 'Quicksand', sans-serif;
+        color: rgb(255, 255, 255);
+    }
+    
+    .high_low{
+        width: 5vw;
+        margin-left: 10px;
+        /* padding-bottom: 5vh; */
+        text-align: right;
+        font-family: 'Quicksand', sans-serif;
+        color: rgb(255, 255, 255);
+    }
+
 }
 
 
@@ -140,9 +424,47 @@
         padding: 0;
     }
 
+    input[type="text"], textarea {
+        background-color : white; 
+    }
+    
+    input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
+    
+    .degree_symbol:not(:empty)::after {
+        content: "°"
+    }
+    
+    .owm-legend-item{
+        display: none;
+    }
+    
+    #map {
+        width: 90vw;
+        height: 600px;
+        margin: 50px auto;
+    }
+    
+    
+    #zip{
+        width:40vw;
+        margin: auto;
+        display: block;
+        border: 0;
+        border-bottom:10px solid rgb(221, 221, 221);
+        text-align: center;
+        font-size: 2em;
+        line-height: 1em;
+    
+        position: fixed;
+        top: 10px;
+        left: 30vw;
+    }
+
     .header{
         background-color: rgb(15, 15, 49);
-        height: 50px;
+        height: 70px;
         margin-top: 0;
     }
 
@@ -150,15 +472,6 @@
         background-color: rgb(66, 66, 88);
         height: 50px;
         margin-top: 0;
-    }
-
-    .bar{
-        background-color: rgb(233, 233, 241);
-        height: 30px;
-        top: 10px;
-        position: relative;
-        width: 30vw;
-        left: 35vw;
     }
 
 
@@ -190,33 +503,6 @@
 
 
 
-    .hourly{
-        padding: 10px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 10px;
-        margin-top: 0px;
-        margin-left: 10vw;
-        margin-right: 10vw;
-    }
-
-    .hour{
-        height: 100px;
-        background-image: linear-gradient(rgb(15, 15, 48), rgb(0, 0, 0));
-        grid-area: 1fr;
-
-    }
-
-    .info{
-        background-color: rgb(177, 182, 187);
-        height: 50px;
-        margin-top: 50px;
-    }
-
-
-
-
-
     .forecast{
         padding: 10px;
         display: grid;
@@ -240,18 +526,6 @@
         margin-top: 120px;
     }
 
-
-
-
-    .map{
-        margin-top: 50px;
-        width: 100vw;
-        height: 700px;
-        background-image: linear-gradient(rgb(71, 107, 34), rgb(31, 100, 58));
-        border-top: solid rgb(51, 51, 51) 10px;
-        border-bottom: solid rgb(51, 51, 51) 10px;
-        margin-bottom: 50px;
-    }
 }
 
 
@@ -269,6 +543,44 @@
         padding: 0;
     }
 
+    input[type="text"], textarea {
+        background-color : white; 
+    }
+    
+    input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
+    
+    .degree_symbol:not(:empty)::after {
+        content: "°"
+    }
+    
+    .owm-legend-item{
+        display: none;
+    }
+    
+    #map {
+        width: 90vw;
+        height: 600px;
+        margin: 50px auto;
+    }
+    
+    
+    #zip{
+        width:40vw;
+        margin: auto;
+        display: block;
+        border: 0;
+        border-bottom:10px solid rgb(221, 221, 221);
+        text-align: center;
+        font-size: 1em;
+        line-height: 1em;
+    
+        position: fixed;
+        top: 10px;
+        left: 30vw;
+    }
+
     .header{
         background-color: rgb(15, 15, 49);
         height: 50px;
@@ -281,14 +593,6 @@
         margin-top: 0;
     }
 
-    .bar{
-        background-color: rgb(233, 233, 241);
-        height: 30px;
-        top: 10px;
-        position: relative;
-        width: 30vw;
-        left: 10vw;
-    }
 
 
 
@@ -307,33 +611,6 @@
     .specs{
         height: 450px;
         background-color: rgb(177, 182, 187);
-    }
-
-
-
-
-
-    .hourly{
-        padding: 10px;
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 10px;
-        margin-top: 50px;
-        margin-left: 7vw;
-        margin-right: 40vw;
-    }
-
-    .hour{
-        height: 100px;
-        background-image: linear-gradient(rgb(15, 15, 48), rgb(0, 0, 0));
-        grid-area: 1fr;
-
-    }
-
-    .info{
-        background-color: rgb(177, 182, 187);
-        height: 50px;
-        margin-top: 50px;
     }
 
 
@@ -362,20 +639,5 @@
         height: 80px;
         margin-top: 120px;
     }
-
-
-
-
-    .map{
-        margin-top: 50px;
-        width: 100vw;
-        height: 700px;
-        background-image: linear-gradient(rgb(71, 107, 34), rgb(31, 100, 58));
-        border-top: solid rgb(51, 51, 51) 10px;
-        border-bottom: solid rgb(51, 51, 51) 10px;
-        margin-bottom: 50px;
-    }
-
-
 
 }
