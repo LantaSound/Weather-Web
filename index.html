@@ -32,32 +32,22 @@
         <div class="current">
 
 
-            <div class="icon">
-                <img v-bind:src="'/icons' + forecast[1].description_icon + '.png'" 
-                v-bind:alt="forecast[1].weather.description">
-            </div>
 
-            <div v-bind:class="'icon_'+forecast[1].description_icon" class="red"></div>
-
-
-            <div class="icon_01n"></div>
-            <div class="icon_02n"></div>
-            <div class="icon_03n"></div>
-            <div class="icon_04n"></div>
-            <div class="icon_09n"></div>
-            <div class="icon_10n"></div>
-            <div class="icon_11n"></div>
-            <div class="icon_13n"></div>
-            <div class="icon_50n"></div>
-            <div>
-                <img src="/icons" alt="">
-            </div>
 
 
 
             <div class="temp">
                 <div class="current_temp degree_symbol">{{current.temp.current}}</div>
                 <div class="current_description">{{current.description_long}}</div>
+                <div class="icon_01n"></div>
+                <div class="icon_02n"></div>
+                <div class="icon_03n"></div>
+                <div class="icon_04n"></div>
+                <div class="icon_09n"></div>
+                <div class="icon_10n"></div>
+                <div class="icon_11n"></div>
+                <div class="icon_13n"></div>
+                <div class="icon_50n"></div>
             </div>
             <div class="specs">
                 <div class="sidebar">

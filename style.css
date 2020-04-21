@@ -23,13 +23,6 @@
         display: none;
     }
 
-    .icon{
-        margin: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        width: 75%;
-        height: 150px;
-    }
     
     .icon_01n{
         background-image: url("/icons/01n.png");
@@ -382,7 +375,7 @@
         margin: auto;
         margin-top: 2px;
         margin-bottom: 2px;
-        width: 75%;
+        width: 10px;
         height: 10px;
         font-family: 'Quicksand', sans-serif;
         color: rgb(255, 255, 255);
